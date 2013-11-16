@@ -10,7 +10,8 @@
         <label for="console">click your code!</label>
         <input id="console" type="submit" value="code!" ng-click="game.codeclick()">
       </form>
-      <div>Code lines - {{ game.lines_of_code }}</div>
+      <div>Source lines of code: {{ game.lines_of_code }}</div>
+      <div>Graduates (10): {{ game.graduates }} <input type="submit" value="buy" ng-click="game.buy(graduates)"></div>
     </div>
   </body>
 </html>
