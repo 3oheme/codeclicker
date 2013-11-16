@@ -1,0 +1,16 @@
+<!doctype html>
+<html ng-app="CodeClicker">
+  <head>
+    <script src="http://code.angularjs.org/1.2.1/angular.min.js"></script>
+    <script src="codeclicker.js"></script>
+  </head>
+  <body>
+    <div ng-controller="GameController as game">
+      <form>
+        <label for="console">click your code!</label>
+        <input id="console" type="submit" value="code!" ng-click="game.codeclick()">
+      </form>
+      <div>Code lines: {{ game.lines_of_code }}</div>
+    </div>
+  </body>
+</html>
