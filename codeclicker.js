@@ -2,8 +2,7 @@ var game = angular.module('CodeClicker', []);
 
 game.controller('GameController', ['$scope', function($scope) {
   	$scope.lines_of_code = 0;
-  	$scope.graduates = 0;
-  	$scope.graduates_clock;
+  	$scope.lps = 0;
     
     $scope.codeclick = function codeclick(){
     	$scope.lines_of_code += 1;
@@ -17,10 +16,24 @@ game.controller('GameController', ['$scope', function($scope) {
     			clearInterval($scope.powerups[i].interval);
     			$scope.powerups[i].interval = setInterval(function(){
 	    			document.getElementById('console').click();},
-	    			(1000/$scope.powerups[i].lps) / $scope.powerups[i].count);
+	    			$scope.calculate_interval($scope.powerups[i]));
+    			$scope.update_lps();
     		}
     	}
     };
+
+    $scope.calculate_interval = function(powerup) {
+    	return (1000/powerup.lps) / powerup.count;
+    }
+
+    $scope.update_lps = function() {
+    	$scope.lps = 0;
+    	for (var i = 0; i < $scope.powerups.length; i++) {
+    		if ($scope.powerups[i].count > 0) {
+    			$scope.lps += $scope.powerups[i].lps * $scope.powerups[i].count;
+    		}
+    	}
+    }
 
     $scope.powerups = [
 	    {
