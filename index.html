@@ -14,12 +14,12 @@
 
       <div>Source lines of code: {{ lines_of_code }}</div>
 
-      <div class="store" ng-controller="PowerUpsController">
+      <div class="store">
         <ul>
           <li ng-repeat="powerup in powerups">
             <div>
-              <span>{{ powerup.name }} ({{ powerup.price }}): {{ powerup.number }}</span>
-              <input type="submit" value="buy" ng-click="buy(powerup.name)">
+              <span>{{ powerup.name }}: {{ powerup.count }}</span>
+              <input type="submit" value="buy one for {{ powerup.price }}" ng-click="buy(powerup.id)">
             </div>    
           </li>
         
