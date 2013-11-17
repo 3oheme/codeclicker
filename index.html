@@ -1,15 +1,19 @@
 <!doctype html>
 <html ng-app="CodeClicker">
   <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://code.angularjs.org/1.2.1/angular.min.js"></script>
-    <script src="codeclicker.js"></script>
+    <script src="./js/codeclicker.js"></script>
+    <script src="./js/hacker_typer.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/hacker_typer.css">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
   </head>
   <body>
     <div ng-controller="GameController">
 
       <form>
         <label for="console">click your code!</label>
-        <input id="console" type="submit" value="code!" ng-click="codeclick()">
+        <input id="console_button" type="submit" value="code!">
         <span>lines per second: {{ lps }}</span>
       </form>
 
@@ -24,6 +28,11 @@
             </div>    
           </li>
         
+      </div>
+
+      <input id="asd" type='text' ng-keyup="codeclick()">
+      <div id="console">
+        Type here:
       </div>
 
     </div>

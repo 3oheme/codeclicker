@@ -13,11 +13,15 @@ game.controller('GameController', ['$scope', function($scope) {
     		if (item == $scope.powerups[i].id && $scope.lines_of_code >= $scope.powerups[i].price) {
     			$scope.powerups[i].count += 1;
     			$scope.lines_of_code -= $scope.powerups[i].price;
+                Typer.index = $scope.lines_of_code;
+                $('#asd').keyup(); $('#asd').keydown();
+
     			clearInterval($scope.powerups[i].interval);
     			$scope.powerups[i].interval = setInterval(function(){
-	    			document.getElementById('console').click();},
+	    			$('#asd').keyup(); $('#asd').keydown(); },
 	    			$scope.calculate_interval($scope.powerups[i]));
     			$scope.update_lps();
+
     		}
     	}
     };
